@@ -7,6 +7,9 @@
 
 降噪
 
+* 交流电 50Hz
+* 头皮肌肉 机电信号
+* 电阻和电导 低频
 * 调整基准线
 * 可以选择去除眨眼转头之类的误差，太麻烦就算了
 * 增幅信号
@@ -16,9 +19,12 @@
 
 分类
 
-* 直接扔到网络中学习
-* 分离频率之后直接扔
-* 分离频带，学习振幅差异（Using Single-trial EEG to Predict and Analyze Subsequent Memory）
+* 特征提取
+    * 分离频率，学习振幅差异（Using Single-trial EEG to Predict and Analyze Subsequent Memory）
+    * 最好有更多分类价值高和稳定度高的特征
+* 分类算法
+    * KNN
+    * CNN
 
 
 解释
@@ -30,3 +36,15 @@
 else
 
 * theta (3 to 8 Hz), alpha (10 to 14 Hz), beta (16 to 26 Hz), low gamma (28 to 42 Hz) and high gamma (44 to 100 Hz)
+* 频率刺激会从功能脑区扩散
+
+
+问题
+
+滤波之后的明显起伏是测量误差还是可以作为输入特征的区别
+我们是否应该
+KNN的输入
+标签的对应问题
+
+
+提取3-4秒再做比较
