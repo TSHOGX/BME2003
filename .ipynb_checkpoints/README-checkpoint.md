@@ -1,8 +1,18 @@
 # BME2003
 
-这个实验的类别应该属于 subsequent memory effects (SMEs)，搜这个关键词可以搜出很多，目的是为了解码记忆过程中的神经活动
 
-数据处理过程可以这么搞：
+Task:
+
+* 多试几个pair，搞成高纬度input
+* 画各种图，展示filter过程，试着能不能找到频率刺激从功能脑区扩散的样子
+* 画热成像图
+* else: CNN PCA 多跑几次，计算平均正确率
+
+
+
+
+
+这个实验的类别应该属于 subsequent memory effects (SMEs)，搜这个关键词可以搜出很多，目的是为了解码记忆过程中的神经活动
 
 
 降噪
@@ -29,22 +39,10 @@
 
 解释
 
-* 就是说和机器学习任务不同的是需要对结果进行生物学上的分析，许多paper的大部分内容都是在分析，可以问问老师需不需要
+* 就是说和机器学习任务不同的是需要对结果进行生物学上的分析，许多paper的大部分内容都是在分析
 
 
 
-else
-
-* theta (3 to 8 Hz), alpha (10 to 14 Hz), beta (16 to 26 Hz), low gamma (28 to 42 Hz) and high gamma (44 to 100 Hz)
-* 频率刺激会从功能脑区扩散
-
-
-问题
-
-滤波之后的明显起伏是测量误差还是可以作为输入特征的区别
-我们是否应该
-KNN的输入
-标签的对应问题
-
-
-提取3-4秒再做比较
+Original matrix: T * Hz * 19
+* Hz: 3 period for alpha beta gama
+* alpha: Alp * T (period is a continent plot, choose the max one)
