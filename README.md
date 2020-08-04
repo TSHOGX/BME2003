@@ -1,48 +1,23 @@
-# BME2003
-
+# README
 
 Task:
 
-* 多试几个pair，搞成高纬度input
-* 画各种图，展示filter过程，试着能不能找到频率刺激从功能脑区扩散的样子
-* 画热成像图
-* else: CNN PCA 多跑几次，计算平均正确率
+![20200804_095115](source/20200804_095115.png)
 
+Original dataset: 19 channels EEG signal for 4 person of 40 or 10 trails
 
+Things we done:
 
+* 截取1s作为输入片段
+* 平移信号消除反应时间导致的波峰位置不同，并扩增数据集61倍
+* 利用傅里叶（或者小波）提取原始电信号频域特征
+* PCA降维上一步的特征以及找到主要通道
+* 计算不同人不同频段的注意力能量，结果显示记忆与alpha & theta波段相关
+* 尝试KNN Gaussian, SVM, Decision Tree, Random Forest, AdaBoost, Logistic Regression等算法
+* 比较不同算法、不同大小数据集、不同维数数据集的算法置信度
+* 计算准确率
 
+Conclusion:
 
-这个实验的类别应该属于 subsequent memory effects (SMEs)，搜这个关键词可以搜出很多，目的是为了解码记忆过程中的神经活动
+扩增之后算法置信度的方差回落到正常范围，稳定性极大提高，准确率稳定在90%左右
 
-
-降噪
-
-* 交流电 50Hz
-* 头皮肌肉 机电信号
-* 电阻和电导 低频
-* 调整基准线
-* 可以选择去除眨眼转头之类的误差，太麻烦就算了
-* 增幅信号
-    * CSP 提高两个类别之间的功率差
-* 带通滤波 找到范围（问老师
-
-
-分类
-
-* 特征提取
-    * 分离频率，学习振幅差异（Using Single-trial EEG to Predict and Analyze Subsequent Memory）
-    * 最好有更多分类价值高和稳定度高的特征
-* 分类算法
-    * KNN
-    * CNN
-
-
-解释
-
-* 就是说和机器学习任务不同的是需要对结果进行生物学上的分析，许多paper的大部分内容都是在分析
-
-
-
-Original matrix: T * Hz * 19
-* Hz: 3 period for alpha beta gama
-* alpha: Alp * T (period is a continent plot, choose the max one)
